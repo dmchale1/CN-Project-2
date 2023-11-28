@@ -8,15 +8,15 @@ checker = 0
 # Check for messages until the checker variable is iterated
 while checker == 0:
     try:
-        # Get a message from the user, then send it to the server
+        # Get a message from the user
         message = input()
 
-        # Look for the "%connect" message to be entered
-        if message == "%connect":
-            # Get host and port numbers from the user
-            address = input("Enter Address: ")
-            port = input("Enter the port number: ")
-            port = int(port)
+        # Look for the "%connect" command to be entered
+        if message.startswith("%connect"):
+
+            # Get address and port number from the connect command line
+            address = message.split()[1]
+            port = int(message.split()[2])
 
             # Connect to the server with the client socket
             client_socket.connect((address, port))
