@@ -1,9 +1,14 @@
 import socket
 import threading
 
+# Get host and port numbers from the user
+address = input("Enter Address: ")
+port = input("Enter the port number: ")
+port = int(port)
+
 # Create the client socket, then connect to the server with it
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(("localhost", 6789))
+client_socket.connect((address, port))
 
 # Send a user-specified username to the server
 user = input("Enter username: ")
